@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float xValue=5f;
-    public float yvalue = 5f;
-    public float zvalue = 5f;
+    [SerializeField] float moveSpeed = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +14,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     transform.Translate(xValue,yvalue,zvalue);   
+        float xValue = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+        float yvalue = 0f;
+        float zvalue = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime ;
+
+        transform.Translate(xValue,yvalue,zvalue);   
     }
 }
