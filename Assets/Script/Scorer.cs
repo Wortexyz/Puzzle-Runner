@@ -5,29 +5,28 @@ using UnityEngine.UI;
 
 public class Scorer : MonoBehaviour
 {
-    public Text text;
+    public Text text,winText;
     int score=0;
-    public GameObject gameoverpannel;
+    public GameObject gameoverpannel,winPannel;
  
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Wall")
-        {
-            score--;
-            Debug.Log("I hitted on the WALL and my score = " +score);
-            text.text = "Score :" + score;
-        }
-        else if (collision.gameObject.tag == "Obstacle")
-        {            
-            score++;
-            Debug.Log("I Hitted on the OBSTACLE  and my score = " +score);
-            text.text ="Score :"+score;
-        }
-        else if (collision.gameObject.tag == "Hit")
+      if ( collision.gameObject.tag == "Obstacle")
         {
             Destroy(gameObject);
             gameoverpannel.SetActive(true);
-
+            score = 0;
+        }
+      else if ( collision.gameObject.tag == "Coin")
+        {
+            score++;
+            text.text = "Score :" +score;
+            Destroy(collision.gameObject);
+        }
+      else if ( collision.gameObject.tag == "Goal")
+        {
+            winPannel.SetActive(true);
+            winText.text= "You Collected : " + score + "coins";
         }
     }
 }

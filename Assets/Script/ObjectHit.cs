@@ -9,12 +9,9 @@ public class ObjectHit : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("SomethingHitME");
+            Debug.Log("Player Hit Me!");
             GetComponent<MeshRenderer>().material.color = Color.black;
-            if (gameObject.tag != "Obstacle" && gameObject.tag != "Wall")
-            {
-                gameObject.tag = "Hit";
-            }
-        }
+            
+                        }
     }
 }

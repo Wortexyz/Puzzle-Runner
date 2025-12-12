@@ -6,7 +6,7 @@ public class ProjectileTrigger : MonoBehaviour
 {
     [SerializeField] GameObject[] projectile;
     // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
         foreach (GameObject p in projectile)
         {
