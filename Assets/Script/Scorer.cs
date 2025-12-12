@@ -7,6 +7,7 @@ public class Scorer : MonoBehaviour
 {
     public Text text;
     int score=0;
+    public GameObject gameoverpannel;
  
     private void OnCollisionEnter(Collision collision)
     {
@@ -16,11 +17,17 @@ public class Scorer : MonoBehaviour
             Debug.Log("I hitted on the WALL and my score = " +score);
             text.text = "Score :" + score;
         }
-        if (collision.gameObject.tag == "Obstacle")
+        else if (collision.gameObject.tag == "Obstacle")
         {            
             score++;
             Debug.Log("I Hitted on the OBSTACLE  and my score = " +score);
             text.text ="Score :"+score;
+        }
+        else if (collision.gameObject.tag == "Hit")
+        {
+            Destroy(gameObject);
+            gameoverpannel.SetActive(true);
+
         }
     }
 }
