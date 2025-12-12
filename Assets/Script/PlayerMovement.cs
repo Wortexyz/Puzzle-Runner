@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -16,15 +16,13 @@ public class PlayerMovement : MonoBehaviour
     {
         MovePlayer();
     }
-    
     void MovePlayer()
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        float xValue = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+        float yvalue = 0f;
+        float zvalue = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
 
-        Vector3 move = new Vector3(h, 0f, v).normalized * moveSpeed * Time.deltaTime;
+        transform.Translate(xValue, yvalue, zvalue);
 
-        transform.Translate(move, Space.Self);
     }
-
 }
