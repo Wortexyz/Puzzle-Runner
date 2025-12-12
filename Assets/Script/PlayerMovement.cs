@@ -16,13 +16,15 @@ public class PlayerMovement : MonoBehaviour
     {
         MovePlayer();
     }
+    
     void MovePlayer()
     {
-        float xValue = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-        float yvalue = 0f;
-        float zvalue = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime ;
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
 
-        transform.Translate(xValue,yvalue,zvalue);   
+        Vector3 move = new Vector3(h, 0f, v).normalized * moveSpeed * Time.deltaTime;
 
+        transform.Translate(move, Space.Self);
     }
+
 }

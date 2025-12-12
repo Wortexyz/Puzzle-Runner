@@ -7,15 +7,21 @@ public class Scorer : MonoBehaviour
 {
     public Text text,winText;
     int score=0;
-    public GameObject gameoverpannel,winPannel;
- 
+    public GameObject winPannel;
+    public  GameObject Startposition;
+
+    private void Awake()
+    {
+        winPannel.SetActive(false);
+    }
     private void OnCollisionEnter(Collision collision)
     {
       if ( collision.gameObject.tag == "Obstacle")
         {
-            Destroy(gameObject);
-            gameoverpannel.SetActive(true);
+            
+           gameObject.transform.position = Startposition.transform.position;
             score = 0;
+            
         }
       else if ( collision.gameObject.tag == "Coin")
         {

@@ -7,7 +7,7 @@ public class Gamemanager : MonoBehaviour
 {
     public void RestartLevel()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Level1");
     }
 
 }
