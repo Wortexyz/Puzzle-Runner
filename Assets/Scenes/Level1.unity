@@ -1692,6 +1692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d1039195300ee46b8624d69d004bbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WinPannel: {fileID: 823445205}
 --- !u!4 &407209992
 Transform:
   m_ObjectHideFlags: 0
